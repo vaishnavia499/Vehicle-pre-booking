@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Home - Vehicle Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #3b82f6, #10b981);
+            color: #333;
+        }
+        header {
+            background: #0d6efd;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .header-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .header-buttons a {
+            background: white;
+            color: #0d6efd;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .header-buttons a:hover {
+            background: #f8f9fa;
+        }
+        section {
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .booking-buttons a {
+            background: #0d6efd;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin: 5px;
+            display: inline-block;
+        }
+        .booking-buttons a:hover {
+            background: #0b5ed7;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">User Dashboard</div>
+        <div class="header-buttons">
+            <a href="#">Profile</a>
+            <a href="index.html">Logout</a>
+        </div>
+    </header>
+
+    <section>
+        <h2>Vehicle Pre-Booking Slots</h2>
+        <div class="booking-buttons">
+            <a href="peakcheckbox.html">Peak Time Booking</a>
+            <a href="nonpeak.html">Non-Peak Time Booking</a>
+        </div>
+    </section>
+
+    <section>
+        <h2>Booking History</h2>
+        <p>View your past vehicle bookings and details.</p>
+    </section>
+
+    <section>
+        <h2>Track Your Vehicle</h2>
+        <input type="text" placeholder="Enter Booking ID">
+        <button>Track</button>
+    </section>
+</body>
+</html>

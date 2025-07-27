@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Varshkalam - Vehicle Booking</title>
+  <style>
+    /* ----------  Base layout & colours ---------- */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #3b82f6, #10b981);
+      color: #333;
+    }
+
+    /* ----------  Header ---------- */
+    header {
+      background: #0d6efd;
+      color: white;
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .auth-buttons {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .auth-buttons a {
+      background: white;
+      color: #0d6efd;
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: background 0.25s ease;
+    }
+    .auth-buttons a:hover {
+      background: #f1f5f9;
+    }
+
+    /* ----------  Welcome message ---------- */
+    .welcome-message {
+      text-align: center;
+      padding: 15px;
+      background: white;
+      font-size: 18px;
+      font-weight: bold;
+      color: #0d6efd;
+      margin: 10px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    /* ----------  Carousel ---------- */
+    .carousel-container {
+      position: relative;
+      max-width: 100%;
+      overflow: hidden;
+      margin: 20px auto;
+    }
+    .carousel-slide {
+      display: flex;
+      transition: transform 0.4s ease-in-out;
+      width: 400%;              /* 4 images → 400 % */
+    }
+    .carousel-slide img {
+      width: 100vw;
+      height: 400px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 2rem;
+      color: white;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      cursor: pointer;
+      padding: 5px 10px;
+      border-radius: 50%;
+      z-index: 10;
+    }
+    #prevBtn { left: 10px; }
+    #nextBtn { right: 10px; }
+
+    /* ----------  About section ---------- */
+    section {
+      margin: 20px;
+      padding: 20px;
+      border-radius: 10px;
+      background: white;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    #about {
+      position: relative;
+      padding-right: 220px;      /* leave room for the screenshot */
+      text-align: left;
+    }
+    .about-image {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      width: 180px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ----------  Offers cards ---------- */
+    .offers-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .offer-card {
+      width: 300px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .offer-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .offer-content {
+      padding: 15px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========  Header with new Peak-Time button  ======== -->
+  <header>
+    <div class="logo">Varshkalam</div>
+
+    <div class="auth-buttons">
+      <a href="contact.html">Contact Us</a>
+      <a href="login.php">Login</a>
+      <a href="signup.php">Signup</a>
+    </div>
+  </header>
+
+  <!-- ========  Hero welcome banner  ======== -->
+  <div class="welcome-message">
+    Welcome to Varshkalam&nbsp;&mdash; Your seamless vehicle-booking experience
+  </div>
+
+  <!-- ========  Image carousel  ======== -->
+  <div class="carousel-container">
+    <div class="carousel-slide" id="slide">
+      <img src="R.jpeg"                       alt="Volvo Bus" />
+      <img src="40723_15seaterminibus1.jpg"   alt="Mini Bus" />
+      <img src="OIP.jpg"                      alt="Cars" />
+      <img src="1287679-upcoming-bikes-in-india.avif" alt="Bike" />
+    </div>
+    <button class="arrow" id="prevBtn">&#10094;</button>
+    <button class="arrow" id="nextBtn">&#10095;</button>
+  </div>
+
+  <!-- ========  About section  ======== -->
+  <section id="about">
+    <h2>About Varshkalam</h2>
+    <p style="text-align: justify;">
+      Varshkalam is your one-stop solution for every vehicle-booking need. We offer instant bookings, real-time tracking,
+      and exclusive deals on cars, bikes, and vans. With 24/7 availability and competitive pricing, we make
+      transportation simple and affordable for everyone.
+    </p>
+    <img src="Screenshot 2025-05-01 143209.png" alt="App Interface" class="about-image" />
+  </section>
+
+  <!-- ========  Special Offers section  ======== -->
+  <section id="offers">
+    <h2>Special Offers</h2>
+    <div class="offers-container">
+      <div class="offer-card">
+        <img src="dis.png" alt="Special Discount" />
+        <div class="offer-content">
+          <h3>Extended Travel Discount</h3>
+          <p>Save big on trips lasting more than two days.</p>
+        </div>
+      </div>
+
+      <div class="offer-card">
+        <img src="For coustomer booking more 15 times in week.png" alt="Super Discount" />
+        <div class="offer-content">
+          <h3>Frequent Traveler Discount</h3>
+          <p>10% SUPER DISCOUNT for customers booking more than 15 times per week.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========  Contact Us section  ======== -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>Have questions or need support? Email us at <a href="mailto:support@varshkalam.com">support@varshkalam.com</a></p>
+  </section>
+
+  <!-- ========  Carousel navigation script  ======== -->
+  <script>
+    const slide  = document.getElementById("slide");
+    const images = slide.querySelectorAll("img");
+    const total  = images.length;
+    let index    = 0;
+
+    document.getElementById("nextBtn").onclick = () => {
+      index = (index + 1) % total;
+      slide.style.transform = `translateX(-${index * 100}vw)`;
+    };
+
+    document.getElementById("prevBtn").onclick = () => {
+      index = (index - 1 + total) % total;
+      slide.style.transform = `translateX(-${index * 100}vw)`;
+    };
+  </script>
+</body>
+</html>

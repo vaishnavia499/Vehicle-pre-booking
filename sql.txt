@@ -1,0 +1,15 @@
+CREATE DATABASE VehicleBooking;
+USE VehicleBooking;
+CREATE TABLE VehicleDetails (
+    SNo INT PRIMARY KEY,
+    Vehicle VARCHAR(50),
+    NoOfVehicles INT,
+    AmountPerKm INT
+);
+NSERT INTO VehicleDetails (SNo, Vehicle, NoOfVehicles, AmountPerKm)
+VALUES
+    (1, 'Car', 30, 20),
+    (2, 'Bus', 15, 40),
+    (3, 'Van', 10, 35),
+    (4, 'Bike', 15, 15);
+SELECT * FROM VehicleDetails;

@@ -1,0 +1,89 @@
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.sql.*;
+
+public class UserAuthServlet extends HttpServlet {
+
+    private Connection getConnection() throws SQLException {
+        String url = "jdbc:mysql://localhost:3306/user_db";
+        String username = "root"; // replace with your MySQL username
+        String password = "password"; // replace with your MySQL password
+        return DriverManager.getConnection(url, username, password);
+    }
+
+    public void init() {
+        try (Connection con = getConnection();
+             Statement stmt = con.createStatement()) {
+            stmt.executeUpdate("CREATE TABLE IF NOT EXISTS users (" +
+                    "full_name VARCHAR(100), " +
+                    "email_id VARCHAR(100) PRIMARY KEY, " +
+                    "aadhar_no VARCHAR(12), " +
+                    "phone_no VARCHAR(15), " +
+                    "select_gender VARCHAR(10), " +
+                    "password VARCHAR(100))");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
+
+        String action = request.getParameter("action");
+
+        if ("signup".equals(action)) {
+            handleSignup(request, response);
+        } else if ("login".equals(action)) {
+            handleLogin(request, response);
+        } else {
+            response.getWriter().println("Unknown action.");
+        }
+    }
+
+    private void handleSignup(HttpServletRequest request, HttpServletResponse response)
+        throws IOException {
+        String fullName = request.getParameter("full_name");
+        String email = request.getParameter("email_id");
+        String aadhar = request.getParameter("aadhar_no");
+        String phone = request.getParameter("phone_no");
+        String gender = request.getParameter("select_gender");
+        String password = request.getParameter("password");
+
+        try (Connection con = getConnection()) {
+            PreparedStatement ps = con.prepareStatement("INSERT INTO users VALUES (?, ?, ?, ?, ?, ?)");
+            ps.setString(1, fullName);
+            ps.setString(2, email);
+            ps.setString(3, aadhar);
+            ps.setString(4, phone);
+            ps.setString(5, gender);
+            ps.setString(6, password);
+            ps.executeUpdate();
+            response.sendRedirect("login.html");
+        } catch (SQLException e) {
+            e.printStackTrace();
+            response.getWriter().println("Signup failed: " + e.getMessage());
+        }
+    }
+
+    private void handleLogin(HttpServletRequest request, HttpServletResponse response)
+        throws IOException {
+        String email = request.getParameter("email_id");
+        String password = request.getParameter("password");
+
+        try (Connection con = getConnection()) {
+            PreparedStatement ps = con.prepareStatement("SELECT * FROM users WHERE email_id=? AND password=?");
+            ps.setString(1, email);
+            ps.setString(2, password);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                response.sendRedirect("afterlogin.html");
+            } else {
+                response.getWriter().println("Invalid email or password!");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            response.getWriter().println("Login failed: " + e.getMessage());
+        }
+    }
+}

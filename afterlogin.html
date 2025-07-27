@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vehicle Pre-Booking System</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #3b82f6, #10b981);
+            color: #333;
+        }
+        header {
+            background: #0d6efd;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .auth-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .auth-buttons a {
+            background: white;
+            color: #0d6efd;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-block;
+        }
+        .auth-buttons a:hover {
+            background: #f8f9fa;
+        }
+        .welcome-message {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            font-size: 18px;
+            font-weight: bold;
+            color: #0d6efd;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        section {
+            margin: 20px;
+            padding: 20px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Vehicle Booking</div>
+        <nav>
+            <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#offers">Offers</a></li>
+                <li><a href="vehicle.html">Availability</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <a href="login.html">Login</a>
+            <a href="signup.html">Signup</a>
+        </div>
+    </header>
+    
+    <div class="welcome-message">Welcome to the Vehicle Pre-Booking System! Book your ride with ease.</div>
+    
+    <section id="about">
+        <h2>About the Application</h2>
+        <p>This application allows users to pre-book vehicles, track their rides, and manage bookings efficiently.</p>
+    </section>
+
+    <section id="offers">
+        <h2>Special Offers</h2>
+        <p>Get exclusive discounts on your first ride! Limited-time offers available.</p>
+    </section>
+
+    <section id="availability">
+        <h2>Vehicle Availability</h2>
+        <p>Check real-time availability of vehicles in your area.</p>
+    </section>
+</body>
+</html>

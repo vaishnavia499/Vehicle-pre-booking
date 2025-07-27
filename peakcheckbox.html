@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Peak Time Booking</title>
+  <style>
+    /* ----------  Base layout & colours ---------- */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #3b82f6, #10b981);
+      color: #333;
+    }
+    header {
+      background: #0d6efd;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .container {
+      background: #fff;
+      margin: 30px auto;
+      padding: 30px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 600px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* ----------  Form elements ---------- */
+    label {
+      display: block;
+      margin: 15px 0 5px;
+    }
+    input[type="text"],
+    input[type="datetime-local"],
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    /* ----------  Checkbox row ---------- */
+    .checkbox-inline {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 15px;
+      font-size: 16px;
+    }
+    .checkbox-inline input[type="checkbox"] {
+      margin: 0;
+    }
+
+    /* ----------  “Button” built from <a> ---------- */
+    a.book-btn {
+      display: block;
+      text-align: center;
+      background: #0d6efd;
+      color: #fff;
+      padding: 12px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 18px;
+      margin-top: 10px;
+      pointer-events: none;   /* start disabled */
+      opacity: 0.5;           /* visual cue */
+      transition: background 0.2s ease, opacity 0.2s ease;
+    }
+    a.book-btn.enabled {      /* becomes active */
+      pointer-events: auto;
+      opacity: 1;
+    }
+    a.book-btn.enabled:hover {
+      background: #0b5ed7;
+    }
+  </style>
+</head>
+<body>
+  <header>Peak Time Vehicle Booking</header>
+
+  <div class="container">
+    <!-- form is still useful for grouping, but it no longer submits anywhere -->
+    <form onsubmit="return false;">
+      <label for="vehicleType">Vehicle Type</label>
+      <select id="vehicleType" name="vehicleType" required>
+        <option value="">Select Vehicle Type</option>
+        <option value="car">Car</option>
+        <option value="bike">Bike</option>
+        <option value="van">Van</option>
+        <option value="bus">Bus</option>
+      </select>
+
+      <label for="pickupTime">Pick Up Time</label>
+      <input type="datetime-local" id="pickupTime" name="pickupTime" required>
+
+      <label for="dropTime">Drop Time</label>
+      <input type="datetime-local" id="dropTime" name="dropTime" required>
+
+      <label for="location">Pick Up Location</label>
+      <input type="text" id="location" name="location" required>
+
+      <label for="destination">Destination</label>
+      <input type="text" id="destination" name="destination" required>
+
+      <label for="paymentType">Payment Type</label>
+      <select id="paymentType" name="paymentType" required>
+        <option value="">Select Payment Type</option>
+        <option value="credit">Credit Card</option>
+        <option value="debit">Debit Card</option>
+        <option value="upi">UPI</option>
+        <option value="cash">Cash</option>
+      </select>
+
+      <!-- acceptance checkbox -->
+      <div class="checkbox-inline">
+        <input type="checkbox" id="prepay" onchange="toggleButton()" />
+        <label for="prepay">I accept 50 % pre-payment for my booking</label>
+      </div>
+
+      <!-- anchor that behaves like a button -->
+      <a id="bookBtn" class="book-btn" href="bookingsucc.html">Book Now</a>
+    </form>
+  </div>
+
+  <script>
+    function toggleButton() {
+      const checkbox = document.getElementById('prepay');
+      const btn = document.getElementById('bookBtn');
+
+      // Enable/disable anchor clickability + visual cues
+      if (checkbox.checked) {
+        btn.classList.add('enabled');
+      } else {
+        btn.classList.remove('enabled');
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vehicle Information</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #6EE7B7, #3B82F6);
+            color: #333;
+        }
+        header {
+            background-color: #2563EB;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+        }
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px;
+        }
+        .vehicle-card {
+            background: white;
+            width: 280px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            padding: 20px;
+            transition: transform 0.3s;
+        }
+        .vehicle-card:hover {
+            transform: translateY(-10px);
+        }
+        .vehicle-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563EB;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        .vehicle-info {
+            font-size: 18px;
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+<header>Vehicle Pre-Booking System</header>
+
+<main>
+    <div class="vehicle-card">
+        <div class="vehicle-title">Car</div>
+        <div class="vehicle-info">Total Vehicles: 30</div>
+        <div class="vehicle-info">Amount per km: ₹20</div>
+        <div class="vehicle-info">Available at Peak Time: 15</div>
+        <div class="vehicle-info">Available at Non-Peak Time: 15</div>
+    </div>
+
+    <div class="vehicle-card">
+        <div class="vehicle-title">Bus</div>
+        <div class="vehicle-info">Total Vehicles: 16</div>
+        <div class="vehicle-info">Amount per km: ₹40</div>
+        <div class="vehicle-info">Available at Peak Time: 2</div>
+        <div class="vehicle-info">Available at Non-Peak Time: 14</div>
+    </div>
+
+    <div class="vehicle-card">
+        <div class="vehicle-title">Van</div>
+        <div class="vehicle-info">Total Vehicles: 10</div>
+        <div class="vehicle-info">Amount per km: ₹35</div>
+        <div class="vehicle-info">Available at Peak Time: 2</div>
+        <div class="vehicle-info">Available at Non-Peak Time: 8</div>
+    </div>
+
+    <div class="vehicle-card">
+        <div class="vehicle-title">Bike</div>
+        <div class="vehicle-info">Total Vehicles: 16</div>
+        <div class="vehicle-info">Amount per km: ₹15</div>
+        <div class="vehicle-info">Available at Peak Time: 8</div>
+        <div class="vehicle-info">Available at Non-Peak Time: 8</div>
+    </div>
+</main>
+
+</body>
+</html>

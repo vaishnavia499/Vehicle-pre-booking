@@ -1,0 +1,12 @@
+CREATE DATABASE user_data;
+
+USE user_data;
+
+CREATE TABLE users (
+    email VARCHAR(255) PRIMARY KEY,
+    fullname VARCHAR(255),
+    aadhaar VARCHAR(12),
+    phone VARCHAR(15),
+    gender VARCHAR(10),
+    password VARCHAR(255)
+);

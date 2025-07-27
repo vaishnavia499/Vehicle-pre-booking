@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Non-Peak Time Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #3b82f6, #10b981);
+            color: #333;
+        }
+        header {
+            background: #0d6efd;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .container {
+            background: white;
+            margin: 30px auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        label {
+            display: block;
+            margin: 15px 0 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        button {
+            background: #0d6efd;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: #0b5ed7;
+        }
+    </style>
+</head>
+<body>
+
+    <header>Non-Peak Time Vehicle Booking</header>
+
+    <div class="container">
+        <form id="bookingForm">
+            <label for="vehicleType">Vehicle Type</label>
+            <select id="vehicleType" name="vehicleType" required>
+                <option value="">Select Vehicle Type</option>
+                <option value="car">Car</option>
+                <option value="bike">Bike</option>
+                <option value="van">Van</option>
+                <option value="bus">Bus</option>
+            </select>
+
+            <label for="pickupTime">Pick Up Time</label>
+            <input type="datetime-local" id="pickupTime" name="pickupTime" required>
+
+            <label for="dropTime">Drop Time</label>
+            <input type="datetime-local" id="dropTime" name="dropTime" required>
+
+            <label for="location">Pick Up Location</label>
+            <input type="text" id="location" name="location" required>
+
+            <label for="destination">Destination</label>
+            <input type="text" id="destination" name="destination" required>
+
+            <label for="paymentType">Payment Type</label>
+            <select id="paymentType" name="paymentType" required>
+                <option value="">Select Payment Type</option>
+                <option value="credit">Credit Card</option>
+                <option value="debit">Debit Card</option>
+                <option value="upi">UPI</option>
+                <option value="cash">Cash</option>
+            </select>
+
+            <button type="submit" id="bookBtn">Book Now</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Prevent default form submission
+            
+            // Store form data in localStorage
+            const formData = {
+                vehicleType: document.getElementById('vehicleType').value,
+                pickupTime: document.getElementById('pickupTime').value,
+                dropTime: document.getElementById('dropTime').value,
+                location: document.getElementById('location').value,
+                destination: document.getElementById('destination').value,
+                paymentType: document.getElementById('paymentType').value,
+                bookingType: "Non-Peak" // Adding booking type for the success page
+            };
+            localStorage.setItem('bookingData', JSON.stringify(formData));
+            
+            // Redirect to success page
+            window.location.href = 'bookingsucc.html';
+        });
+    </script>
+
+</body>
+</html>
